@@ -10,8 +10,16 @@ nr_letters = int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
-gen_password = random.choices(letters, k=nr_letters).append()
-gen_password = random.choices(numbers, k=nr_numbers).append()
-gen_password = random.choices(symbols, k=nr_symbols).append()
+for n in range(0, nr_letters):
+    gen_password.append(random.choice(letters))
 
-print(f"Suggested password: {gen_password}")
+for n in range(0, nr_symbols):
+    gen_password.append(random.choice(symbols))
+
+for n in range(0, nr_numbers):
+    gen_password.append(random.choice(numbers))
+
+random.shuffle(gen_password)
+gen_password = ''.join(gen_password)
+
+print(f"Suggested password: {gen_password} it's {len(gen_password)} characters long.")
